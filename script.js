@@ -97,13 +97,7 @@ function updateCart() {
 }
 
 function formatText(n) {
-    if (n > 1) {
-        return  n + " ITEMS IN CART";
-    } else if (n === 1) {
-        return "1 ITEM IN CART";
-    } else {
-        return "NO ITEM IN CART";
-    }
+    return  `${n} ITEM(S) IN CART`; 
 }
 
 function clearCart() {
