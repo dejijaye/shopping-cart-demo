@@ -8,7 +8,7 @@ p, a, span, div {
 
 html {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 16px;
+    /* font-size: 16px; */
     height: 100%;
     overflow: hidden;
 }
@@ -26,13 +26,6 @@ body {
     align-items: center;
     justify-content: space-between;
   }
-  
-  /* Links inside the navbar */
-.navbar a {
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-}
 
 .navbar a img {
     vertical-align: middle;
@@ -43,17 +36,16 @@ body {
   
 /* Dropdown button */
 .dropdown .dropbtn {
-    font-size: 16px; 
+    font-size: 14px; 
     border: none;
     outline: none;
-    color: rgb(56, 56, 56);
+    color: rgb(70, 70, 70);
     padding: 14px 10px;
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
 }
   
-  /* Add a red background color to navbar links on hover */
 .dropdown:hover .dropbtn {
     background-color: #fff;
 }
@@ -97,7 +89,6 @@ body {
 
 .dropdown-content .product .product-title {
     position: relative;
-    /* top: -10px; */
     width: 191px;
     overflow: hidden;
     white-space: nowrap;
@@ -110,8 +101,6 @@ body {
     float: right;
     padding: 16px 8px 12px 50px;
     position: relative;
-    /* top: 10px; */
-    /* right: 0; */
     font-size: 14px;
     color: rgb(56, 56, 56, 0.8);
 }
@@ -176,7 +165,7 @@ body {
 }
 
 .fade {
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -192,7 +181,7 @@ body {
 .product-title {
     font-size: 14px;
     font-weight: bold;
-    color: rgb(70, 70, 70)
+    color: rgb(70, 70, 70);
 }
 
 .container p {
