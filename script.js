@@ -1,6 +1,3 @@
-var addBtns = document.querySelectorAll('.btn-add');
-var removeBtns = document.querySelectorAll('.remove');
-
 // Shopping cart initialized with some items in it.
 var shoppingCart = [{
     id: "4",
@@ -48,14 +45,21 @@ function removeFromCart(event) {
 
 }
 
-// register event handlers
-for(var i = 0; i < addBtns.length; i++) {
-    addBtns[i].addEventListener('click', addToCart);
-}
 
-for(var i = 0; i < removeBtns.length; i++) {
-    removeBtns[i].addEventListener('click', removeFromCart);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    // register event handlers
+    for(var i = 0; i < document.querySelectorAll('.btn-add').length; i++) {
+        document.querySelectorAll('.btn-add')[i].addEventListener('click', addToCart);
+    }
+    
+    for(var i = 0; i < document.querySelectorAll('.remove').length; i++) {
+        document.querySelectorAll('.remove')[i].addEventListener('click', removeFromCart);
+    }
+
+    document.querySelector('.clear-cart').addEventListener('click', clearCart);
+
+})
+
 
 
 function updateCart() {
@@ -65,16 +69,15 @@ function updateCart() {
     
         var totalItems = shoppingCart.length;
         document.querySelector('.total-item').innerHTML = totalItems;
-        var holderHTML = '<div class="product cart-info"><span class="cart-summary">' + formatText(totalItems) + 
-                        '<div class="cart-right" style="float: right;"><span class="cart-total">$' + totalAmount + 
-                        '</span><button class="btn btn-clear clear-cart">CLEAR CART</button></div></div>';
+        var holderHTML = `<div class="product cart-info"><span class="cart-summary">${formatText(totalItems)} 
+                        <div class="cart-right" style="float: right;"><span class="cart-total">$${totalAmount} 
+                        </span><button class="btn btn-clear clear-cart">CLEAR CART</button></div></div>`;
         
         shoppingCart.forEach(function(product) {
 
-            holderHTML += '<div class="product"><img src="'+ "img/img" + product.id + 
-                    '.png" alt=""><span class="product-title">' + product.name + 
-                    '</span><span class="product-price">$' + product.price + 
-                    '</span><a href="#"><span class="remove" data-id="'+ product.id +'">Remove</span></a></div>';
+            holderHTML += `<div class="product"><img src="img/img${product.id}.png" alt=""><span class="product-title">${product.name} 
+                    </span><span class="product-price">$${product.price} 
+                    </span><a href="#"><span class="remove" data-id="${product.id}">Remove</span></a></div>`;
         });
         document.querySelector('.dropdown-content').innerHTML = holderHTML;
         document.querySelector('.clear-cart').addEventListener('click', clearCart);
@@ -88,7 +91,7 @@ function updateCart() {
         var totalAmount = 0;
         var totalItems = shoppingCart.length;
         document.querySelector('.total-item').innerHTML = totalItems;
-        var holderHTML = '<div class="product cart-info"><span class="cart-summary">' + formatText(totalItems) + '</span></div>';
+        var holderHTML = `<div class="product cart-info"><span class="cart-summary">${formatText(totalItems)}</span></div>`;
         
         document.querySelector('.dropdown-content').innerHTML = holderHTML;
         document.querySelector('.cart-summary').style.top = 0;
@@ -107,6 +110,7 @@ function clearCart() {
 }
 
 function resetButtons() {
+    var addBtns = document.querySelectorAll('.btn-add');
     for(var i = 0; i < addBtns.length; i++) {
         if(addBtns[i].dataset.owned !== "true") {
             addBtns[i].classList.remove('btn-disable');
@@ -118,11 +122,9 @@ function resetButtons() {
 }
 
 function resetButton(id) {
-    var button = addBtns[id];
+    var button = document.querySelectorAll('.btn-add')[id];
     button.dataset.inCart = "false";
     button.textContent = "$" + button.dataset.price;
     button.classList.remove('btn-disable');
     button.previousElementSibling.classList.remove('hide');
 }
-
-document.querySelector('.clear-cart').addEventListener('click', clearCart);
