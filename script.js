@@ -1,6 +1,7 @@
 var addBtns = document.querySelectorAll('.btn-add');
 var removeBtns = document.querySelectorAll('.remove');
 
+// Shopping cart initialized with some items in it.
 var shoppingCart = [{
     id: "4",
     inCart: "true",
@@ -18,7 +19,6 @@ var shoppingCart = [{
 function addToCart(event) {
     event.preventDefault();
     var productDetail = this.dataset
-    console.log(productDetail);
     if(productDetail.inCart === 'false') {
         shoppingCart.push(productDetail);
         this.dataset.inCart = 'true';
@@ -60,7 +60,6 @@ for(var i = 0; i < removeBtns.length; i++) {
 function updateCart() {
 
     if(shoppingCart.length > 0) {
-        console.log(shoppingCart);
         var totalAmount = shoppingCart.reduce(function (a,b) { return a + Number(b.price); }, 0);
     
         var totalItems = shoppingCart.length;
@@ -74,7 +73,7 @@ function updateCart() {
             holderHTML += '<div class="product"><img src="'+ "img/img" + product.id + 
                     '.png" alt=""><span class="product-title">' + product.name + 
                     '</span><span class="product-price">$' + product.price + 
-                    '</span><a href=""><span class="remove" data-id="'+ product.id +'">Remove</span></a></div>';
+                    '</span><a href="#"><span class="remove" data-id="'+ product.id +'">Remove</span></a></div>';
         });
         document.querySelector('.dropdown-content').innerHTML = holderHTML;
         document.querySelector('.clear-cart').addEventListener('click', clearCart);
