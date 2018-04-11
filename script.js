@@ -23,6 +23,7 @@ function addToCart(event) {
         shoppingCart.push(productDetail);
         this.dataset.inCart = 'true';
         this.textContent = 'IN CART';
+        this.classList.add('btn-disable');
         this.previousElementSibling.classList.add('hide'); 
     }
     
@@ -114,6 +115,7 @@ function clearCart() {
 function resetButtons() {
     for(var i = 0; i < addBtns.length; i++) {
         if(addBtns[i].dataset.owned !== "true") {
+            addBtns[i].classList.remove('btn-disable');
             addBtns[i].previousElementSibling.classList.remove('hide');
             addBtns[i].textContent = "$" + addBtns[i].dataset.price;
             addBtns[i].dataset.inCart = "false";
@@ -125,6 +127,7 @@ function resetButton(id) {
     var button = addBtns[id];
     button.dataset.inCart = "false";
     button.textContent = "$" + button.dataset.price;
+    button.classList.remove('btn-disable');
     button.previousElementSibling.classList.remove('hide');
 }
 

@@ -143,7 +143,7 @@ body {
     width:100%;
     height:100%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    /* opacity: 0; */ /* to view the secret button :) */ 
+    opacity: 0; /* to view the secret button :) */ 
 }
 
 .row {
@@ -202,7 +202,9 @@ body {
     border-radius: 4px;
 }
 
-.btn-label { background-color: #00905e; }
+.btn-label { 
+    background-color: #00905e; 
+}
 
 .btn-add {
     background-color: transparent;
@@ -223,10 +225,17 @@ body {
     left: 30%;
     text-align: center;
     width: 400px;
-    margin: 0 auto;
     padding: 12px 14px;
     background: linear-gradient(to top, #00905e, #31e6a6);
     z-index: -1;
+}
+
+.btn-add:hover, .btn-clear:hover {
+    cursor: pointer;
+}
+
+.btn-disable:hover {
+    cursor: default;
 }
 
 .hide {
