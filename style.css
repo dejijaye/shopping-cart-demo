@@ -8,8 +8,8 @@ p, a, span, div {
 
 html {
     font-family: 'Source Sans Pro', sans-serif;
-    height: 100%;
-    overflow: hidden;
+    /* height: 100%; */
+    /* overflow: hidden; */
 }
 
 body {
