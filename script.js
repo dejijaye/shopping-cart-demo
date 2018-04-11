@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // register event handlers
+    for(var i = 0; i < document.querySelectorAll('.btn-add').length; i++) {
+        document.querySelectorAll('.btn-add')[i].addEventListener('click', addToCart);
+    }
+    
+    for(var i = 0; i < document.querySelectorAll('.remove').length; i++) {
+        document.querySelectorAll('.remove')[i].addEventListener('click', removeFromCart);
+    }
+
+    document.querySelector('.clear-cart').addEventListener('click', clearCart);
+
+})
+
 // Shopping cart initialized with some items in it.
 var shoppingCart = [{
     id: "4",
@@ -44,23 +58,6 @@ function removeFromCart(event) {
     resetButton(itemToDelete.id);
 
 }
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // register event handlers
-    for(var i = 0; i < document.querySelectorAll('.btn-add').length; i++) {
-        document.querySelectorAll('.btn-add')[i].addEventListener('click', addToCart);
-    }
-    
-    for(var i = 0; i < document.querySelectorAll('.remove').length; i++) {
-        document.querySelectorAll('.remove')[i].addEventListener('click', removeFromCart);
-    }
-
-    document.querySelector('.clear-cart').addEventListener('click', clearCart);
-
-})
-
-
 
 function updateCart() {
 
