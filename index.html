@@ -12,59 +12,95 @@
 <body>
     <div class="navbar">
         <a href="#home"><img src="img/logo.png" alt="gog.com logo"></a>
-        <div class="dropdown" style="float:right;">
+        <div class="dropdown">
             <button class="dropbtn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 
-            <span>2</span>
+            <span class="total-item">2</span>
             </button>
             <div class="dropdown-content">
-            <div class="product cart__info">
-                <span class="cart__summary">2 ITEMS IN CART</span>
-                <div class="cart__right" style="float:right;">
-                    <span class="cart__total">$15.97</span>
-                    <button class="btn btn-clear btn-round">CLEAR CART</button>
+                <div class="product cart-info">
+                    <span class="cart-summary">2 ITEMS IN CART</span>
+                    <div class="cart-right" style="float:right;">
+                        <span class="cart-total">$15.97</span>
+                        <button class="btn btn-clear clear-cart">CLEAR CART</button>
+                    </div>
                 </div>
-            </div>
-            <div class="product">
-                <img src="img/img5.png" alt="">
-                <span class="product__title">ASSASSIN'S CREED: DIREC...</span>
-                <span class="product__price">$4.99</span>
-                <a href=""><span class="remove">Remove</span></a>
-            </div>
-            <div class="product">
-                <img src="img/img3.png" alt="">
-                <span class="product__title">THE SETTLER'S: GOLD EDITION</span>
-                <span class="product__price">$4.99</span>
-                <a href=""><span class="remove">Remove</span></a>
-            </div>
+                <div class="product">
+                    <img src="img/img4.png" alt="">
+                    <span class="product-title">ASSASSIN'S CREED: DIRECTOR'S CUT</span>
+                    <span class="product-price">$9.99</span>
+                    <a href=""><span class="remove" data-id="4">Remove</span></a>
+                </div>
+                <div class="product">
+                    <img src="img/img2.png" alt="">
+                    <span class="product-title">THE SETTLER'S: GOLD EDITION</span>
+                    <span class="product-price">$5.99</span>
+                    <a href=""><span class="remove" data-id="2">Remove</span></a>
+                </div>
             </div>
         </div> 
     </div>
     <div class="wrapper">
         <div class="banner">
             <p>GAME OF THE WEEK</p>
+            <button class="btn btn-secret">A SECRET BUTTON THAT YOU SHOULD TOTALLY IMPLEMENT</button>
             <img src="img/bg.png" alt="">
         </div>
         <div class="row">
             <div class="column">
                 <div class="card">
-                    <img src="img/img1.png" alt="Avatar" style="width:100%">
+                    <img src="img/img0.png" alt="Avatar" style="width:100%">
                     <div class="container">
-                        <h5 class="product__title">ODDWORLD: STRANGER'S WORLD</h5> 
+                        <h5 class="product-title">ODDWORLD: STRANGER'S WORLD</h5> 
                         <p>
-                            <button class="btn btn-round">-50%</button>
-                            <button class="btn btn-white btn-round">$9.99</button>
+                            <button class="btn btn-label">-50%</button>
+                            <button 
+                                class="btn btn-add" 
+                                data-id="0" 
+                                data-name="ODDWORLD: STRANGER'S WORLD" 
+                                data-price="9.99" 
+                                data-in-cart="false" 
+                                data-owned="false" >
+                                $9.99
+                            </button>
                         </p> 
                     </div>
                 </div>
             </div>
             <div class="column">
-                <div class="card fade">
+                <div class="card">
+                    <img src="img/img1.png" alt="Avatar" style="width:100%">
+                    <div class="container fade">
+                        <h5 class="product-title">CHAOS ON DEPONIA</h5> 
+                        <p>
+                            <button 
+                                class="btn btn-add" 
+                                data-id="1" data-name="CHAOS ON DEPONIA" 
+                                data-owned="true" 
+                                data-price="4.99" 
+                                disabled>
+                                OWNED
+                            </button>
+                        </p> 
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
                     <img src="img/img2.png" alt="Avatar" style="width:100%">
                     <div class="container">
-                        <h5 class="product__title">CHAOS ON DEPONIA</h5> 
+                        <h5 class="product-title">THE SETTLER'S: GOLD EDITION</h5> 
                         <p>
-                            <button class="btn btn-white btn-round">OWNED</button>
-                        </p> 
+                            <button class="btn btn-label hide">-50%</button>
+                            <button 
+                                class="btn btn-add" 
+                                data-id="2" 
+                                data-name="THE SETTLER'S: GOLD EDITION" 
+                                data-price="5.99" 
+                                data-owned="false" 
+                                data-in-cart="true" >
+                                IN CART
+                            </button>
+                         </p> 
                     </div>
                 </div>
             </div>
@@ -72,10 +108,19 @@
                 <div class="card">
                     <img src="img/img3.png" alt="Avatar" style="width:100%">
                     <div class="container">
-                        <h5 class="product__title">THE SETTLER'S: GOLD EDITION</h5> 
+                        <h5 class="product-title">NEVERWINTER NIGHT</h5> 
                         <p>
-                            <button class="btn btn-white btn-round">IN CART</button>
-                         </p> 
+                            <button class="btn btn-label">-50%</button>
+                            <button 
+                                class="btn btn-add" 
+                                data-id="3" 
+                                data-name="NEVERWINTER NIGHT" 
+                                data-price="4.99" 
+                                data-owned="false" 
+                                data-in-cart="false" >
+                                $4.99
+                            </button>
+                        </p> 
                     </div>
                 </div>
             </div>
@@ -83,26 +128,24 @@
                 <div class="card">
                     <img src="img/img4.png" alt="Avatar" style="width:100%">
                     <div class="container">
-                        <h5 class="product__title">NEVERWINTER NIGHT</h5> 
+                        <h5 class="product-title">ASSASSIN'S CREED: DIRECTOR'S CUT</h5> 
                         <p>
-                            <button class="btn btn-round">-50%</button>
-                            <button class="btn btn-white btn-round">$4.99</button>
-                        </p> 
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <img src="img/img5.png" alt="Avatar" style="width:100%">
-                    <div class="container">
-                        <h5 class="product__title">ASSASSIN'S CREED: DIRECTOR'S CUT</h5> 
-                        <p>
-                            <button class="btn btn-white btn-round">IN CART</button>
+                            <button class="btn btn-label hide">-50%</button>
+                            <button 
+                                class="btn btn-add" 
+                                data-id="4" 
+                                data-name="ASSASSIN'S CREED: DIRECTOR'S CUT" 
+                                data-price="9.99" 
+                                data-owned="false" 
+                                data-in-cart="true" >
+                                IN CART
+                            </button>
                         </p> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
